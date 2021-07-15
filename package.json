@@ -1,0 +1,30 @@
+{
+  "name": "pentab-backend",
+  "version": "1.0.0",
+  "description": "A back end  for the rover mission task",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon -r dotenv/config index.js",
+    "start": "node index.js",
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ahmedgaafer/PentaB-Backend.git"
+  },
+  "author": "AhmedS.Gaafe",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ahmedgaafer/PentaB-Backend/issues"
+  },
+  "homepage": "https://github.com/ahmedgaafer/PentaB-Backend#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "dotenv": "^10.0.0",
+    "eslint": "^7.30.0",
+    "jest": "^27.0.6",
+    "nodemon": "^2.0.12"
+  }
+}
