@@ -10,14 +10,10 @@ class Rover {
   _changePos(x, y) {
     this.x = x;
     this.y = y;
-
-    return this;
   }
 
   _changeDir(dir) {
     this.dir = dir;
-
-    return this;
   }
 
   getCurrentDir() {
@@ -31,7 +27,7 @@ class Rover {
       else this._changePos(...f(this.x, this.y, this.dir));
     }
 
-    return this;
+    return this.getCurrentDir();
   }
 }
 
