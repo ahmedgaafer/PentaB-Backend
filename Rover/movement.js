@@ -28,6 +28,28 @@ function _changePos(axis, isForward, dir) {
   return isForward ? axis + moveVlaue : axis - moveVlaue;
 }
 
+function _isCrashing(newX, newY, obsticles) {
+  for (let pos of obsticles) {
+    if (pos[0] === newX && pos[1] === newY) return true;
+  }
+
+  return false;
+}
+
+function _move(x, y, dir, obsticles, isForward) {
+  let newX, newY;
+
+  if (_isXAxis(dir)) {
+    newX = _changePos(x, isForward, dir);
+    newY = y;
+  } else {
+    newX = x;
+    newY = _changePos(y, isForward, dir);
+  }
+
+  return _isCrashing(newX, newY, obsticles) ? [x, y, "stopped"] : [newX, newY];
+}
+
 function rotateLeft(dir) {
   return rotationMap[`${dir[0]}L`];
 }
@@ -36,16 +58,12 @@ function rorateRight(dir) {
   return rotationMap[`${dir[0]}R`];
 }
 
-function moveForward(x, y, dir) {
-  return _isXAxis(dir)
-    ? [_changePos(x, true, dir), y]
-    : [x, _changePos(y, true, dir)];
+function moveForward(x, y, dir, obsticles) {
+  return _move(x, y, dir, obsticles, true);
 }
 
-function moveBackward(x, y, dir) {
-  return _isXAxis(dir)
-    ? [_changePos(x, false, dir), y]
-    : [x, _changePos(y, false, dir)];
+function moveBackward(x, y, dir, obsticles) {
+  return _move(x, y, dir, obsticles, false);
 }
 
 module.exports = {

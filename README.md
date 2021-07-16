@@ -68,7 +68,8 @@ example request and response body
 {
   "x" : 1,
   "y" : 1,
-  "dir": "EAST"
+  "dir": "EAST",
+  "stops": [[6, 5]]
 }
 
 

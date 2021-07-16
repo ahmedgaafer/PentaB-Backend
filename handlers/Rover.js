@@ -2,10 +2,11 @@ const Rover = require("../Rover/");
 
 async function connect(req, res, next) {
   try {
-    const { x, y, dir } = req.body;
-    if (!x || !y || !dir) throw new Error("Missing request data ");
+    const { x, y, dir, stops } = req.body;
+    if (!x || !y || !dir || !Array.isArray(stops))
+      throw new Error("Missing request data ");
 
-    global.R = new Rover(x, y, dir);
+    global.R = new Rover(x, y, dir, stops);
 
     return res.status(201).json({ msg: "Rover has been created successfully" });
   } catch (error) {

@@ -13,7 +13,7 @@ app.use("/api", Routes);
 app.use(ErrorHandler);
 
 /*Server Start*/
-app.listen(PORT, () => {
+module.exports = app.listen(PORT, () => {
   console.log(
     `Server started in ${
       process.env.NODE_ENV || "Production"
